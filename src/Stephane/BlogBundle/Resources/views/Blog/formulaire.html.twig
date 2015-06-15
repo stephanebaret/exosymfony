@@ -1,0 +1,31 @@
+<h3>Formulaire d'article</h3>
+
+<form method="post" {{ form_enctype(form) }}>
+	<div class="form-group">
+	{# form_widget(form) #}
+	{{ form_errors(form) }}
+	
+	{{ form_label(form.titre, "Titre le l'article") }}
+	{{ form_errors(form.titre)}}
+	{{ form_widget(form.titre, { 'attr': {'class': 'form-group'} })}} 
+	
+	{{ form_label(form.contenu, "Contenu de l'article") }}
+	{{ form_errors(form.contenu)}}
+	{{ form_widget(form.contenu, { 'attr': {'class': 'form-group form-control'} })}} 
+	
+	{{ form_label(form.auteur, "Nom de l'auteur de l'article") }}
+	{{ form_errors(form.auteur)}}
+	{{ form_widget(form.auteur, { 'attr': {'class': 'form-group'} })}} 
+	
+	{{ form_label(form.datecreation, "Date de création de l'article") }}
+	{{ form_errors(form.datecreation)}}
+	{{ form_widget(form.datecreation, { 'attr': {'class': 'form-group'} })}} 
+	
+	{{ form_label(form.publication, "Publication de l'article") }}
+	{{ form_errors(form.publication)}}
+	{{ form_widget(form.publication, { 'attr': {'class': 'form-group'} })}} 
+	
+	{{ form_rest(form) }}
+	</div>
+	<input type="submit" class="btn btn-primary">
+</form>

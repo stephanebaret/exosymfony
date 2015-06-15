@@ -1,0 +1,10 @@
+{% extends "StephaneBlogBundle::layout.html.twig" %}
+{% block title %} {{ parent() }} - Index{% endblock %}
+{% block stephane_body %}
+{{ article.titre }}<br>
+{{ article.contenu }}<br>
+{{ article.auteur }}<br>
+{{ article.datecreation | date('d-m-y h:i:s') }}<br>
+{% include "StephaneBlogBundle:Blog:formulaire.html.twig" %}
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "StephaneBlogBundle::layout.html.twig" %}
+{% block title %} {{ parent() }} - Index{% endblock %}
+{% block stephane_body %}
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">{{ article.titre }}</h3>
+</div>
+<div class="panel-body">
+{{ article.contenu }}
+</div>
+<div class="panel-body">
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">Auteur</span>
+  <input type="text" class="form-control" placeholder="{{ article.auteur }}" aria-describedby="basic-addon1" readonly>
+</div>
+</div>
+<div class="panel-body">
+{% if article.image != null %}
+
+<div class="row">
+<img src="{{ asset('images/') }}{{ article.image.src }}" class="img-thumbnail">
+</div>
+{% endif %}
+</div>
+<div class="panel-body">
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">Date</span>
+  <input type="text" class="form-control" placeholder="{{ article.datecreation | date('d-m-y h:i:s') }}" aria-describedby="basic-addon1" readonly>
+</div>
+</div>
+<div class="panel-body">
+{% if commentaires != null %}
+{% for commentaire in commentaires %}
+<div class="alert alert-success" role="alert">
+Commentaire de
+<small>{{commentaire.auteur}}</small>
+"<small>{{commentaire.contenu}}</small>"
+ le <small>{{commentaire.date | date('d-m-y h:i:s')}}</small>
+</div>
+{% endfor %}
+{% endif %}
+</div>
+</div>
+<div class="panel-body">
+{% if article.categories |length > 0 %}
+    <div class="panel panel-default">
+	    <div class="panel-heading">Catégorie</div>
+		<div class="panel-body">
+		    {% for categorie in article.categories %}
+			    <span class="label label-info">{{categorie.nom}}</span>
+			{% endfor %}
+		</div>
+	</div>
+{% endif %}
+</div>
+</div>
+{% endblock %}
+

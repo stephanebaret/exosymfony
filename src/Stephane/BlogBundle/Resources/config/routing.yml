@@ -1,0 +1,25 @@
+stephane_blog_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: StephaneBlogBundle:Default:index }
+
+stephane_blog_acceuil:
+    path:     /{page}
+    defaults: { _controller: StephaneBlogBundle:Blog:index, page: 1 }
+    requirements:
+        page: \d+
+
+stephane_blog_voir:
+    path:     /article/{id}
+    defaults: { _controller: StephaneBlogBundle:Blog:voir }
+    requirements:
+        id: \d+
+
+stephane_blog_ajouter:
+    path:     /ajouter
+    defaults: { _controller: StephaneBlogBundle:Blog:ajouter }
+
+stephane_blog_modifier:
+    path:     /modifier/{id}
+    defaults: { _controller: StephaneBlogBundle:Blog:modifier }
+    requirements:
+        id: \d+
