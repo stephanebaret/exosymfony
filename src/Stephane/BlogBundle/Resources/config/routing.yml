@@ -7,19 +7,3 @@ stephane_blog_acceuil:
     defaults: { _controller: StephaneBlogBundle:Blog:index, page: 1 }
     requirements:
         page: \d+
-
-stephane_blog_voir:
-    path:     /article/{id}
-    defaults: { _controller: StephaneBlogBundle:Blog:voir }
-    requirements:
-        id: \d+
-
-stephane_blog_ajouter:
-    path:     /ajouter
-    defaults: { _controller: StephaneBlogBundle:Blog:ajouter }
-
-stephane_blog_modifier:
-    path:     /modifier/{id}
-    defaults: { _controller: StephaneBlogBundle:Blog:modifier }
-    requirements:
-        id: \d+

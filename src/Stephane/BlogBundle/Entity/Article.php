@@ -1,6 +1,7 @@
 <?php
 
 namespace Stephane\BlogBundle\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,6 +26,7 @@ class Article
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255)
+     * @Assert\Length(min="10")
      */
     private $titre;
 
@@ -32,6 +34,7 @@ class Article
      * @var string
      *
      * @ORM\Column(name="contenu", type="text")
+     * @Assert\NotBlank()
      */
     private $contenu;
 
@@ -39,6 +42,7 @@ class Article
      * @var string
      *
      * @ORM\Column(name="auteur", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $auteur;
 
@@ -46,6 +50,7 @@ class Article
      * @var \DateTime
      *
      * @ORM\Column(name="datecreation", type="datetime")
+     * @Assert\DateTime()
      */
     private $datecreation;    
     
@@ -65,6 +70,20 @@ class Article
      * @ORM\OneToMany(targetEntity="Stephane\BlogBundle\Entity\Commentaire", mappedBy="article", cascade={"persist","remove"})
      */
     private $commentaires;
+    
+
+    /**
+     * @ORM\OneToOne(targetEntity="Stephane\BlogBundle\Entity\Image", cascade={"persist","remove"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $image;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
     
     /**
      * Get id
@@ -196,15 +215,7 @@ class Article
     {
         return $this->publication;
     }
-    
-    /**
-     * @ORM\OneToOne(targetEntity="Stephane\BlogBundle\Entity\Image", cascade={"persist","remove"})
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $image;
-
-
-
+   
     /**
      * Set image
      *
@@ -292,5 +303,28 @@ class Article
     public function getCommentaires()
     {
         return $this->commentaires;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Article
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

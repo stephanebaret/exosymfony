@@ -22,7 +22,9 @@
 	<buildpathentry kind="src" path="src"/>
 	<buildpathentry kind="src" path="vendor/symfony/monolog-bundle"/>
 	<buildpathentry kind="src" path="vendor/swiftmailer/swiftmailer/lib"/>
+	<buildpathentry kind="src" path="vendor/doctrine/doctrine-fixtures-bundle"/>
 	<buildpathentry kind="src" path="vendor/symfony/symfony/src/Symfony/Bundle"/>
+	<buildpathentry kind="src" path="vendor/doctrine/data-fixtures/lib"/>
 	<buildpathentry kind="src" path="vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Resources/stubs"/>
 	<buildpathentry kind="src" path="vendor/symfony/symfony/src/Symfony/Bridge/Monolog"/>
 	<buildpathentry kind="src" path="vendor/doctrine/doctrine-bundle"/>

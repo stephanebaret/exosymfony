@@ -12,7 +12,15 @@
 	<!-- List group -->
 	<ul class="list-group">
 	    {% for article in listeArticles %}
-		<li class="list-group-item"><a href="Blog/article/{{ article.id }}">{{ article.titre }}</a></li>
+		<li class="list-group-item">
+			<form method="post" enctype="multipart/form-data" action="{{ path('stephane_blog_modifier', {id:article.id}) }}">
+				<div class="container-fluid">
+ 					<!-- <a href="{{ path('stephane_blog_voir', { id: article.id }) }}" class="col-md-8">{{ article.titre }}</a> -->
+ 					<a href="{{ path('stephane_blog_voir_slug', { slug: article.slug }) }}" class="col-md-8">{{ article.titre }}</a>
+  					<input type="submit" class="btn btn-primary" value="Modifier" class="col-md-4">
+				</div>				
+			</form>
+		</li>
 		{% endfor %}
 	</ul>
 </div>

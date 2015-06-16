@@ -2,3 +2,13 @@ services:
 #    stephane_blog.example:
 #        class: Stephane\BlogBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+     stephane_blog.slugger:
+         class: Stephane\BlogBundle\Service\Slugger
+         
+     stephane_blog.article_listener:
+        class: Stephane\BlogBundle\Service\SlugListener
+        calls:
+            - [setSlugger, ["@stephane_blog.slugger"]]
+        tags:
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: prePersist }
