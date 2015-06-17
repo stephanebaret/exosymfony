@@ -1,9 +1,9 @@
 stephane_blog_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: StephaneBlogBundle:Default:index }
-
+    path:   /hello/{name}
+    defaults:  { _controller: StephaneBlogBundle:Default:index }
+    
 stephane_blog_acceuil:
-    path:     /{page}
-    defaults: { _controller: StephaneBlogBundle:Blog:index, page: 1 }
+    path:   /{page}
+    defaults:  { _controller: StephaneBlogBundle:Blog:index, page: 1 }
     requirements:
         page: \d+

@@ -13,6 +13,7 @@
 	<buildpathentry kind="src" path="vendor/symfony/symfony/src/Symfony/Bridge/Doctrine"/>
 	<buildpathentry kind="src" path="vendor/incenteev/composer-parameter-handler"/>
 	<buildpathentry kind="src" path="vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/stubs"/>
+	<buildpathentry kind="src" path="vendor/knplabs/knp-paginator-bundle"/>
 	<buildpathentry kind="src" path="vendor/doctrine/cache/lib"/>
 	<buildpathentry kind="src" path="vendor/sensio/distribution-bundle"/>
 	<buildpathentry kind="src" path="vendor/composer"/>
@@ -36,6 +37,7 @@
 	<buildpathentry kind="src" path="app"/>
 	<buildpathentry kind="src" path="vendor/sensio/generator-bundle"/>
 	<buildpathentry kind="src" path="vendor/doctrine/dbal/lib"/>
+	<buildpathentry kind="src" path="vendor/knplabs/knp-components/src"/>
 	<buildpathentry kind="src" path="vendor/symfony/assetic-bundle"/>
 	<buildpathentry kind="src" path="vendor/doctrine/collections/lib"/>
 	<buildpathentry kind="src" path="vendor/twig/twig/lib"/>

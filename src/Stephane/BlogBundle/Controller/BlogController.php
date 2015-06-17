@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraints\Type;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/Blog")
@@ -46,6 +47,27 @@ class BlogController extends Controller {
 	}
 	
 	/**
+	 * @Route("/articles/", name="stephane_blog_voir_all")
+	 * @Template()
+	 */
+	public function voirAllAction(Request $request) {
+		$em    = $this->get('doctrine.orm.entity_manager');
+		$dql   = "SELECT a FROM StephaneBlogBundle:Article a";
+		$query = $em->createQuery($dql);
+		
+		$paginator  = $this->get('knp_paginator');
+		$pagination = $paginator->paginate(
+				$query,
+				$request->query->getInt('page', 1)/*page number*/,
+				3/*limit per page*/
+		
+		);
+
+	    // parameters to template
+	    return $this->render('StephaneBlogBundle:Blog:list.html.twig', array('pagination' => $pagination));
+	}
+	
+	/**
 	 * @Route("/ajouter", name="stephane_blog_ajouter")
 	 * @Template()
 	 */
@@ -63,7 +85,7 @@ class BlogController extends Controller {
 			$form->handleRequest ( $request );
 			
 			if ($form->isValid ()) {
-				// génération du slugg
+				// gï¿½nï¿½ration du slugg
 // 				$slugger = $this->get('stephane_blog.slugger');
 // 				$slug = $slugger->getSlug($article->getTitre());
 // 				$article->setSlug($slug);
@@ -104,7 +126,7 @@ class BlogController extends Controller {
 			$form->handleRequest ( $request );
 			
 			if ($form->isValid ()) {
-				// génération du slugg
+				// gï¿½nï¿½ration du slugg
 // 				$slugger = $this->get('stephane_blog.slugger');
 // 				$slug = $slugger->getSlug($article->getTitre());
 // 				$article->setSlug($slug);
