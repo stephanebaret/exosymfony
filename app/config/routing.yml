@@ -1,11 +1,3 @@
-stephane_blog:
-    resource: "@StephaneBlogBundle/Resources/config/routing.yml"
-    prefix:   /Blog
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
-
 blog:
     resource: "@StephaneBlogBundle/Controller/"
     type:     annotation
