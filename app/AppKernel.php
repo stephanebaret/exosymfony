@@ -20,6 +20,9 @@ class AppKernel extends Kernel
             new Stephane\BlogBundle\StephaneBlogBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
         	new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+        	new JMS\SerializerBundle\JMSSerializerBundle(),
+        	new Misd\GuzzleBundle\MisdGuzzleBundle(),
+            new TestWebServiceBundle\TestWebServiceBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
