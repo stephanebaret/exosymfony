@@ -1,3 +1,8 @@
+test_web_service:
+    resource: "@TestWebServiceBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 stephane_blog:
     resource: "@StephaneBlogBundle/Resources/config/routing.yml"
     prefix:   /Blog

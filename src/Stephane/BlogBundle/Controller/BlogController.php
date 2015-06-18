@@ -29,8 +29,7 @@ class BlogController extends Controller {
 		$em = $this->getDoctrine ()->getManager ();
 		$entities = $em->getRepository ( 'StephaneBlogBundle:Article' )->findAll ();
 		return array (
-				'listeArticles' => $entities 
-		);
+				'listeArticles' => $entities);
 	}
 	
 	/**
